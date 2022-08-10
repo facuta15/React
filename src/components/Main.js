@@ -1,0 +1,14 @@
+import React from 'react'
+import ItemListContainer from "./ItemListContainer"
+import ItemDetailContainer from "./ItemDetailContainer"
+
+
+const Main = () => {
+  return (
+    <div>
+        <ItemListContainer/>
+    </div>
+  )
+}
+
+export default Main
