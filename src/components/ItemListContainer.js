@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ItemDetail from "./ItemDetail"
 import ItemList from "./ItemList"
 
 const productosIniciales = [
@@ -51,7 +52,9 @@ const ItemListContainer = () => {
         )
     } else {
         return (
-            <ItemList productos={productos} />
+            <ItemList productos={productos}>
+                <ItemDetail detail = {detail}></ItemDetail>
+            </ItemList>
         )
     }
 
