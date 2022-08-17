@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import {LinkContainer} from 'react-router-bootstrap'
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,9 +11,7 @@ const Item = ({ producto }) => {
         <Card.Header>{producto.nombre}</Card.Header>
         <Card.Body>
           <Card.Title>Precio : ${producto.precio}</Card.Title>
-          <LinkContainer>
-                <Nav.Link to="/ItemDetail">ver detalle</Nav.Link>
-          </LinkContainer>
+                 <Link to={`/detalle/${producto.id}`}>ver detalle</Link>
         </Card.Body>
       </Card>
     </div>
