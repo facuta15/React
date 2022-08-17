@@ -1,17 +1,18 @@
 
 import './App.css';
 import Header from './Header';
-import Contador from './contador';
+import { BrowserRouter } from "react-router-dom";
 import Main from './Main'
 import Footer from './Footer'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Main/>
-      <Contador/>
-      <Footer/>
+      <BrowserRouter>
+            <Header />
+            <Main/>
+            <Footer />
+        </BrowserRouter>
     </div>
   );
 }
