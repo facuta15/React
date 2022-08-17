@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar({type}) {
-  if(type == "header"){
+  if(type === "header"){
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
