@@ -15,6 +15,7 @@ function NavBar({type}) {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
               <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+              <Nav.Link as={Link} to="/cart">Carrito</Nav.Link>
               <NavDropdown title="Productos" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/cascos">Cascos</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/accesorios">Accesorios</NavDropdown.Item>

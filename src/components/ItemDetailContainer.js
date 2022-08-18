@@ -10,11 +10,10 @@ const ItemDetailContainer = () => {
    
     useEffect(() => {
 
-      const pedido = fetch("/productos.json" + id)
+      const pedido = fetch("https://fakestoreapi.com/products/" + id)
 
       pedido
           .then((respuesta) => {
-            console.log(respuesta)
               return respuesta.json()
           })
           .then((respuesta) => {
@@ -23,6 +22,7 @@ const ItemDetailContainer = () => {
           .catch(error => console.log(error))
 
   }, [id])
+
       return(
         <div>
           <ItemDetail item = {item}></ItemDetail>

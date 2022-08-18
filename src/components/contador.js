@@ -1,21 +1,31 @@
 import { useState } from "react"
-import Button from 'react-bootstrap/Button';
-const Contador= ()=>{
-    
-    const [contador,setContador]= useState(0)
-    const sumar=()=>{
-        setContador(contador + 1) 
+
+const Contador = ({onAdd}) => {
+
+    const [contador, setContador] = useState(0)
+    const [confirmed, setConfirmed] = useState(false)
+
+    const sumar = () => {
+        setContador(contador + 1)
     }
-    const restar=()=>{
-        setContador(contador - 1) 
+
+    const restar = () => {
+        setContador(contador - 1)
     }
-    return(
+
+    const confirmar = () => {
+        onAdd(contador)
+        setConfirmed(confirmed)
+    }
+
+    return (
         <div>
-            <p>Al llegar a 10 le regalamos una moto, intente: {contador}</p>
-            <Button variant="secondary" onClick={sumar}>Sumar</Button>
-            <Button variant="secondary" onClick={restar}>restar</Button>
+            <p>Cantidad: {contador}</p>
+            <button onClick={sumar}>summar</button>
+            <button onClick={restar}>restar</button>
+            <button onClick={confirmar}>confirmar</button>
         </div>
-    ) 
+    )
 }
 
-export default Contador;
+export default Contador
