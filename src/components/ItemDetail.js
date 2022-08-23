@@ -1,14 +1,31 @@
-import { Link } from 'react-router-dom';
+
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Contador from "./Contador"
+import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
 
-  const onAdd = (contador) => {
-      item.cantidad = contador
-  }
 
+const [estadoPadre, setEstadoPadre] = useState(0);
+const [confirmed, setConfirmed] = useState(false);
+
+  const onAdd = () => {
+      item.cantidad = estadoPadre;
+      setConfirmed(true);
+  }
+  
+  
+if(confirmed){
+  return(
+    <Link to="/cart/">
+    <button type="button">
+         Finalizar compra!
+    </button>
+</Link>
+  )
+}else{
   return (
     <div class="d-inline-flex p-2">
       <Card className="text-center rounded me-2">
@@ -20,12 +37,11 @@ const ItemDetail = ({item}) => {
           </Card.Text>
           <img class="w-25" src={item.image} alt="" />
         </Card.Body>
-        <Contador onAdd={onAdd} />
-        <div className="d-grid gap-2">
-        <Link to={`/cart`}>Confirmar Compra</Link>
-        </div>
+        <p>Cantidad: {estadoPadre}</p>
+        <Contador estadoPadre={estadoPadre} setEstadoPadre={setEstadoPadre} onAdd={onAdd}/>
       </Card>
     </div>
   );
+}
 }
 export default ItemDetail

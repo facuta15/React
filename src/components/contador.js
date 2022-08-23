@@ -1,31 +1,25 @@
-import { useState } from "react"
 
-const Contador = ({onAdd}) => {
+const Contador = ({estadoPadre , setEstadoPadre,onAdd}) => {
 
-    const [contador, setContador] = useState(0)
-    const [confirmed, setConfirmed] = useState(false)
+  const sumar = () => {
+    setEstadoPadre(estadoPadre + 1);
+  };
 
-    const sumar = () => {
-        setContador(contador + 1)
-    }
+  const restar = () => {
+    setEstadoPadre(estadoPadre - 1);
+  };
 
-    const restar = () => {
-        setContador(contador - 1)
-    }
+  const confirmar = () => {
+    onAdd()
+  };
 
-    const confirmar = () => {
-        onAdd(contador)
-        setConfirmed(confirmed)
-    }
+  return (
+    <div>
+      <button onClick={sumar}>summar</button>
+      <button onClick={restar}>restar</button>
+      <button onClick={confirmar}>Confirmar</button>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <p>Cantidad: {contador}</p>
-            <button onClick={sumar}>summar</button>
-            <button onClick={restar}>restar</button>
-            <button onClick={confirmar}>confirmar</button>
-        </div>
-    )
-}
-
-export default Contador
+export default Contador;
