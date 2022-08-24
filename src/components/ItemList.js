@@ -3,7 +3,7 @@ import Item from "./Item"
 
 const ItemList = ({ productos }) => {
     return (
-        <section>
+        <section class='text-center'>
             {productos.map((producto) => {
                 return <Item producto={producto}/>
             })}

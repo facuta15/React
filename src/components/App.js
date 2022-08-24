@@ -1,18 +1,20 @@
-
-import './App.css';
-import Header from './Header';
 import { BrowserRouter } from "react-router-dom";
-import Main from './Main'
-import Footer from './Footer'
+import "./App.css";
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "./Footer";
+import CustomProvider from "./CustomProvider";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-            <Header />
-            <Main/>
-            <Footer />
-        </BrowserRouter>
+        <CustomProvider>
+          <Header />
+          <Main />
+          <Footer />
+        </CustomProvider>
+      </BrowserRouter>
     </div>
   );
 }
