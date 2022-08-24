@@ -4,30 +4,36 @@ import Card from 'react-bootstrap/Card';
 import Contador from "./Contador"
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { contexto } from './CustomProvider';
 
 const ItemDetail = ({item}) => {
 
-
+const {agergarProducto}= useContext(contexto)
 const [estadoPadre, setEstadoPadre] = useState(0);
 const [confirmed, setConfirmed] = useState(false);
 
   const onAdd = () => {
       item.cantidad = estadoPadre;
+      agergarProducto(item);
       setConfirmed(true);
   }
   
   
 if(confirmed){
   return(
-    <Link to="/cart/">
-    <button type="button">
-         Finalizar compra!
-    </button>
-</Link>
+    <div class="text-center mt-5">
+      <Link to="/cart/">
+          <button type="button">
+              Finalizar compra!
+          </button>
+      </Link>
+    </div>
+      
   )
 }else{
   return (
-    <div class="d-inline-flex p-2">
+    <div class="text-center h-25 d-inline-block p-2">
       <Card className="text-center rounded me-2">
         <Card.Header>{item.title}</Card.Header>
         <Card.Body>
