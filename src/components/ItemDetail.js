@@ -9,13 +9,13 @@ import { contexto } from './CustomProvider';
 
 const ItemDetail = ({item}) => {
 
-const {agergarProducto}= useContext(contexto)
+const {agregarProducto}= useContext(contexto)
 const [estadoPadre, setEstadoPadre] = useState(0);
 const [confirmed, setConfirmed] = useState(false);
 
   const onAdd = () => {
       item.cantidad = estadoPadre;
-      agergarProducto(item);
+      agregarProducto(item);
       setConfirmed(true);
   }
   
