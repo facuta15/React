@@ -9,9 +9,10 @@ const Main = () => {
   return (
     <div>
             <Routes>
-            <Route path="/" element={<ItemListContainer/>}/>
-                <Route path="/detalle/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/" element={<ItemListContainer/>}/>
+                <Route path="/detalle/:id" element={<ItemDetailContainer />}/>
                 <Route path="/cart/" element={<Cart/>}/>
+                <Route path="/cascos" element={<ItemListContainer/>}/>
             </Routes>
     </div>
   )

@@ -6,32 +6,36 @@ const productosIniciales = [
         id: 1,
         nombre: "Casco",
         precio: 100,
-        detail: "Casco LS2,un casco para tu cabeza"
+        detail: "Casco LS2,un casco para tu cabeza",
+        categoryID: 1
     },
     {
         id: 2,
         nombre: "Antiparras",
         precio: 200,
-        detail: "Antiparras ojitos, para protejer tu vista"
+        detail: "Antiparras ojitos, para protejer tu vista",
+        categoryID: 2
     },
     {
         id: 3,
         nombre: "Defensas",
         precio: 300,
-        detail: "Defensas, porque si te comes una piedra, tu moto te lo va a agradecer"
+        detail: "Defensas, porque si te comes una piedra, tu moto te lo va a agradecer",
+        categoryID: 3
     },
     {
         id: 4,
         nombre: "Sunchos",
         precio: 400,
-        detail: "Sunchos para atar la carpa"
+        detail: "Sunchos para atar la carpa",
+        categoryID: 4
     }
 ]
-const ItemListContainer = () => {
+const ItemListContainer = ({carrito}) => {
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
-
+    
     
     useEffect(() => {
         const pedido = new Promise((res, rej) => {
@@ -40,8 +44,15 @@ const ItemListContainer = () => {
             }, 2000)
         })
         pedido.then((resultado) => {
-            setProductos(resultado)
-            setLoading(false)
+            if(!carrito){
+                setProductos(resultado)
+                setLoading(false)
+            }
+            else{
+                setProductos(carrito)
+                setLoading(false)
+            }
+            
         })
         pedido.catch((error) => {
             console.log("No se pudo completar el pedido")
@@ -54,7 +65,7 @@ const ItemListContainer = () => {
         )
     } else {
         return (
-            <ItemList productos={productos}>
+            <ItemList productos={productos} >
             </ItemList>
         )
     }
