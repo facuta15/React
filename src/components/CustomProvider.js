@@ -21,7 +21,7 @@ const CustomProvider = (props) => {
     }
 
     const eliminarProducto = (id) => {
-        const searchObject= carrito.findIndex((item) => item.id==id);
+        const searchObject = carrito.findIndex((item) => item.id==id);
         carrito.splice(searchObject,1);
     }
 
@@ -30,7 +30,7 @@ const CustomProvider = (props) => {
     }
 
     const estaEnCarrito = (id) => {
-        const searchObject= carrito.findIndex((item) => item.id==id);
+        const searchObject = carrito.findIndex((item) => item.id==id);
         if(searchObject)
             return true
         else

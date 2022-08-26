@@ -1,7 +1,7 @@
 import Item from "./Item"
 
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ productos },) => {
     return (
         <section class='text-center'>
             {productos.map((producto) => {
