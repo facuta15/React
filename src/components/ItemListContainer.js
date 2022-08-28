@@ -21,17 +21,17 @@ const productosIniciales = [
         nombre: "Defensas",
         precio: 300,
         detail: "Defensas, porque si te comes una piedra, tu moto te lo va a agradecer",
-        categoryID: 3
+        categoryID: 2
     },
     {
         id: 4,
         nombre: "Sunchos",
         precio: 400,
         detail: "Sunchos para atar la carpa",
-        categoryID: 4
+        categoryID: 2
     }
 ]
-const ItemListContainer = ({carrito}) => {
+const ItemListContainer = ({carrito , idCategoria}) => {
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -65,7 +65,7 @@ const ItemListContainer = ({carrito}) => {
         )
     } else {
         return (
-            <ItemList productos={productos} >
+            <ItemList productos={productos} id= {idCategoria} >
             </ItemList>
         )
     }
