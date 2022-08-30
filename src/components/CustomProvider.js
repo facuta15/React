@@ -14,14 +14,31 @@ const CustomProvider = (props) => {
     const [cantidad, setCantidad] = useState(0);
     const [carrito, setCarrito] = useState([]);
 
-    const agregarProducto = (producto) => {
-        setCantidad(cantidad + producto.cantidad)
-        carritoAux.push(producto)
-        setCarrito(carritoAux)
+
+
+   
+    const agregarProducto = (producto, estadoPadre)=>{
+        const newItem= {
+            ...producto,
+            estadoPadre
+        }
+        if(estaEnCarrito(newItem.id)){
+            const findProduct = carrito.find(x => x.id === newItem.id)
+            const productIndex = carrito.indexOf(findProduct)
+            const auxArray = [...carrito]
+            auxArray[productIndex].estadoPadre += estadoPadre
+            setCarrito(auxArray)
+            setCantidad(estadoPadre)
+        }
+        else{
+            console.log(estadoPadre)
+            setCarrito([...carrito,newItem])
+            setCantidad(estadoPadre)
+        }
     }
 
     const eliminarProducto = (id) => {
-        const searchObject = carrito.findIndex((item) => item.id==id);
+        const searchObject = carrito.findIndex((item) => item.id == id);
         carrito.splice(searchObject,1);
     }
 
@@ -30,11 +47,7 @@ const CustomProvider = (props) => {
     }
 
     const estaEnCarrito = (id) => {
-        const searchObject = carrito.findIndex((item) => item.id==id);
-        if(searchObject)
-            return true
-        else
-            return false
+        return carrito.some(x => x.id === id)
     }
     
     let valorDelContexto = {

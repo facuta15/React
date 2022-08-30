@@ -9,7 +9,6 @@ const CartWidget = ({ type }) => {
 
 
     const {cantidad} = useContext(contexto)
-    
     return (
                 <NavLink to="/cart">
                     {/* <FontAwesomeIcon icon="faShoppingCart" /> esto no anda */}
