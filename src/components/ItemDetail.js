@@ -15,7 +15,7 @@ const [confirmed, setConfirmed] = useState(false);
 
   const onAdd = () => {
       item.cantidad = estadoPadre;
-      agregarProducto(item);
+      agregarProducto(item,estadoPadre);
       setConfirmed(true);
   }
   

@@ -2,11 +2,14 @@
 import Page from "./Page"
 import { useCarrito } from "./CustomProvider";
 import ItemListContainer from "./ItemListContainer";
-import { useState } from "react";
+import { contexto } from "./CustomProvider"
+import { useContext } from "react"
+
 
 
 const Cart = () => {
   const { carrito } = useCarrito()
+  const {cantidad} = useContext(contexto)
     const handleClick=()=>{
         console.log("su compra finalizo")
     }
@@ -15,16 +18,19 @@ const Cart = () => {
     const calcularPrecioTotal = () =>{
       let total =0
         carrito.forEach(element => {
-          total = total + element.price
+          total = element.cantidad * element.price
         });
         return total;
     }
     
-    console.log(carrito);
+    
     let precioTotal =calcularPrecioTotal()
     
     return (
-      <Page titulo="Carrito" subtitulo ="Productos seleccionados">
+      <Page titulo="Carrito" subtitulo ="Productos seleccionados:">
+        <div>
+          <h2>{cantidad}</h2>
+        </div>
         <ItemListContainer carrito = {carrito}></ItemListContainer>
         <div>
           El precio total es de:{precioTotal}

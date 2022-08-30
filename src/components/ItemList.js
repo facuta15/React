@@ -3,7 +3,7 @@ import Item from "./Item"
 
 const ItemList = ({ productos  , id}) => {
     let productosFiltrados =[] 
-    if(id != 0){
+    if(id !== undefined){
         productosFiltrados = productos.filter(function(producto){
             return producto.categoryID === id;
         })
@@ -22,7 +22,6 @@ const ItemList = ({ productos  , id}) => {
                 </section>
             )
         }
-       
     }
     else{
         return (
