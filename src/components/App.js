@@ -4,6 +4,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import CustomProvider from "./CustomProvider";
+import "../firebase" 
 
 function App() {
   return (

@@ -35,11 +35,11 @@ if(confirmed){
   return (
     <div class="text-center h-25 d-inline-block p-2">
       <Card className="text-center rounded me-2">
-        <Card.Header>{item.title}</Card.Header>
+        <Card.Header>{item.nombre}</Card.Header>
         <Card.Body>
-          <Card.Title>Precio : ${item.price}</Card.Title>
+          <Card.Title>Precio : ${item.precio}</Card.Title>
           <Card.Text>
-            {item.description}
+            {item.detail}
           </Card.Text>
           <img class="w-25" src={item.image} alt="" />
         </Card.Body>

@@ -18,14 +18,14 @@ const Cart = () => {
     const calcularPrecioTotal = () =>{
       let total =0
         carrito.forEach(element => {
-          total = element.cantidad * element.price
+          total = element.cantidad * element.precio
         });
         return total;
     }
     
     
     let precioTotal =calcularPrecioTotal()
-    
+    console.log(carrito)
     return (
       <Page titulo="Carrito" subtitulo ="Productos seleccionados:">
         <div>
