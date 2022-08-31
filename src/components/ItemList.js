@@ -2,12 +2,14 @@ import Item from "./Item"
 
 
 const ItemList = ({ productos  , id}) => {
+    console.log("ID:"+id)
     let productosFiltrados =[] 
     if(id !== undefined){
-        productosFiltrados = productos.filter(function(producto){
+        productosFiltrados = productos.filter((producto)=>{
+            console.log("ID categoria:"+ producto.categoryID);
             return producto.categoryID === id;
         })
-        if(!productosFiltrados.length){
+        if(!productosFiltrados.length){ 
             return(
                 <div>
                     No hay productos en esta categoria

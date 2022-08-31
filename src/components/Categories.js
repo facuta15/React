@@ -21,7 +21,6 @@ const Categories = ({id}) => {
         break;
         default: break;
     }
-    console.log(nombreCategoria)
   return (
     <Page titulo= {nombreCategoria} subtitulo = {categoriaDescripcion}>
         <ItemListContainer idCategoria = {id} ></ItemListContainer>

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react"
+import { db } from "../firebase"
 import ItemList from "./ItemList"
+import { collection, getDoc,getDocs } from "firebase/firestore"
+
+const productosCollection = collection(db,"products")
+
 
 const productosIniciales = [
     {
@@ -38,24 +43,28 @@ const ItemListContainer = ({carrito , idCategoria}) => {
     
     
     useEffect(() => {
-        const pedido = new Promise((res, rej) => {
-            setTimeout(() => {
-                res(productosIniciales)
-            }, 2000)
-        })
-        pedido.then((resultado) => {
+        const consulta = getDocs(productosCollection)
+        consulta
+        .then(snapshot =>{
+            const productos = snapshot.docs.map(doc=>{
+                return{
+                    ...doc.data(),
+                    id: doc.id
+                }
+            })
             if(!carrito){
-                setProductos(resultado)
-                setLoading(false)
+                setProductos(productos)
+                setLoading(!loading)
             }
             else{
                 setProductos(carrito)
-                setLoading(false)
+                setLoading(!loading)
             }
+        }
             
-        })
-        pedido.catch((error) => {
-            console.log("No se pudo completar el pedido")
+        )
+        .catch(err=>{
+            console.log(err)
         })
 
     }, [])
