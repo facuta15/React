@@ -5,6 +5,8 @@ import Main from "./Main";
 import Footer from "./Footer";
 import CustomProvider from "./CustomProvider";
 import "../firebase" 
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Main />
           <Footer />
         </CustomProvider>
+        <ToastContainer/>
       </BrowserRouter>
     </div>
   );
