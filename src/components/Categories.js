@@ -6,19 +6,20 @@ const Categories = ({id}) => {
     
     let nombreCategoria;
     let categoriaDescripcion;
+    
     switch(id){
         case 1: nombreCategoria = "Cascos";
                 categoriaDescripcion = "Encuentre cascos al mejor precio"
                 break;
         case 2: nombreCategoria = "Accesorios";
             categoriaDescripcion = "Encuentre su accesorio al mejor precio"
-        break;
+            break;
         case 3: nombreCategoria = "Repuestos";
             categoriaDescripcion = "Encuentre cualquier repuesto"
-        break;
+            break;
         case 4: nombreCategoria = "Cubiertas";
             categoriaDescripcion = "Encuentre cubiertas para su moto"
-        break;
+            break;
         default: break;
     }
   return (

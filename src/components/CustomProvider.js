@@ -10,7 +10,6 @@ export const useCarrito = () => {
 
 const CustomProvider = (props) => {
 
-    let carritoAux=[]
     const [cantidad, setCantidad] = useState(0);
     const [carrito, setCarrito] = useState([]);
 
@@ -31,7 +30,6 @@ const CustomProvider = (props) => {
             setCantidad(estadoPadre)
         }
         else{
-            console.log(estadoPadre)
             setCarrito([...carrito,newItem])
             setCantidad(estadoPadre)
         }
