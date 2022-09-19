@@ -1,8 +1,7 @@
 import Item from "./Item"
-
+import Row from 'react-bootstrap/Row';
 
 const ItemList = ({ productos  , id}) => {
-    console.log("ID:"+id)
     let productosFiltrados =[] 
     if(id !== undefined){
         productosFiltrados = productos.filter((producto)=>{
@@ -17,20 +16,24 @@ const ItemList = ({ productos  , id}) => {
             )
         }else{
             return (
-                <section class='text-center'>
+                <section class='text-center row align-items-start '>
+                    <Row  xs={6} md={5 } className="g-4 gap-3 justify-content-center p-3">
                     {productosFiltrados.map((producto) => {
-                            return <Item producto={producto}/>
+                        return <Item producto={producto}/>
                     })}
+                    </Row>
                 </section>
             )
         }
     }
     else{
         return (
-            <section class='text-center'>
+            <section class='text-center row'>
+                <Row  xs={6} md={5 } className="g-4 gap-3 justify-content-center p-3">
                 {productos.map((producto) => {
                         return <Item producto={producto}/>
                 })}
+                </Row>
             </section>
         )
     }

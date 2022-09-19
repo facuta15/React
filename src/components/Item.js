@@ -6,18 +6,22 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ producto }) => {
   return (
-    <div class="w-25 d-inline-flex p-2">
-      <Card className="text-center rounded me-2">
-        <Card.Header>{producto.nombre}</Card.Header>
+    <Card className="col-3" style={{ minwidth: '10rem'}} >
+        <Card.Img className="h-75" src={producto.image} />
         <Card.Body>
-          <Card.Title>Precio : ${producto.precio}</Card.Title>
-          <div>
-          <img class="w-25" src={producto.image} alt="" />
-          </div>
-                 <Link to={`/detalle/${producto.id}`}>ver detalle</Link>
+          <Card.Title>{producto.nombre}</Card.Title>
+          <Card.Text>
+          Precio : ${producto.precio}
+          </Card.Text>
         </Card.Body>
+        <Card.Footer>
+          <small className="text-muted">
+          <Link to={`/detalle/${producto.id}`}>ver detalle</Link>
+          </small>
+        </Card.Footer>
       </Card>
-    </div>
   );
 }
 export default Item
+
+      

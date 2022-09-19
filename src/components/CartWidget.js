@@ -1,17 +1,10 @@
-import { NavLink } from "react-router-dom"
-import Navbar from 'react-bootstrap/Navbar';
-import { useContext } from "react"
-import { contexto } from "./CustomProvider"
-
+import { NavLink } from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
+import { useContext } from "react";
+import { contexto } from "./CustomProvider";
 
 const CartWidget = ({ type }) => {
-
-
-    const {cantidad} = useContext(contexto)
-    return (
-                <NavLink to="/cart">
-                    Carrito {cantidad}
-                </NavLink>
-    )
-}
-export default CartWidget
+  const { cantidad } = useContext(contexto);
+  return <Nav.Link to="/cart" class= "fw-semibold">Carrito {cantidad}</Nav.Link>;
+};
+export default CartWidget;

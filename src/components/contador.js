@@ -1,4 +1,6 @@
 
+import { Button } from 'react-bootstrap';
+
 const Contador = ({estadoPadre , setEstadoPadre,onAdd}) => {
 
   const sumar = () => {
@@ -14,10 +16,10 @@ const Contador = ({estadoPadre , setEstadoPadre,onAdd}) => {
   };
 
   return (
-    <div>
-      <button onClick={sumar}>summar</button>
-      <button onClick={restar}>restar</button>
-      <button onClick={confirmar}>Confirmar</button>
+    <div className="justify-content-center d-flex gap-1">
+      <Button variant="success" onClick={sumar}>+</Button>
+      <Button variant="danger" onClick={restar}>-</Button>
+      <Button variant="secondary" onClick={confirmar}>Confirmar</Button>
     </div>
   );
 };
